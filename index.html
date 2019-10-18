@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Planet Express | Our crew is replacable</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        * {
+            color: white;
+            text-transform: uppercase;
+            padding: 0;
+            margin: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        body{
+            height:220vh;
+        }
+
+        .section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            background-color: black;
+        }
+
+        .section--top {
+            background-image: url("img/bg-main.png");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .section--parallax {
+            z-index: 5;
+            position: relative;
+            margin-top: -120px;
+            background: url("img/bg-front.png");
+            background-size: contain;
+            height:200vh;
+        }
+
+        .logo {
+            bottom: 50px;
+            right: 150px;
+            z-index: 0;
+            width: 500px;
+            position: fixed
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 50px;
+            z-index: 6;
+        }
+
+        .menu a {
+            text-decoration: none;
+            margin: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .menu a:hover{
+            letter-spacing: 3px;
+        }
+        .menu #cta{
+            border:solid white;
+            padding:5px 20px;
+        }
+        h1 {
+            margin-left: 100px;
+            font-size: 50px;
+        }
+
+        h1 span {
+            font-size: 1.5em;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+        <div class="section section--top">
+            <div class="menu">
+                <a href="#">History</a>
+                <a href="#">Services</a>
+                <a href="#">Staff</a>
+                <a id="cta" href="#">Schedule</a>
+            </div>
+            <h1>Our crew is replacable, <br><span>Your package isn't</span></h1>
+            <img class="logo" src="img/white-logo.png" alt="Planet Express">
+        </div>
+        <div class="section section--parallax">
+            <h1>Parallax is awesome</h1>
+        </div>
+        <div class="overflow"></div>
+    </body>
+
+<script>
+$(document).ready(()=>{
+    $(window).scroll((event)=>{
+        var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
+        
+        $('.section--parallax').css('transform', "translateY("+-scrollPercent*8+"px)");
+        $('.logo').css('transform', "translateY("+-scrollPercent*3+"px)");
+        
+    })    
+})
+</script>
+</html>
